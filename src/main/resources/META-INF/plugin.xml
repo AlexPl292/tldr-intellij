@@ -15,7 +15,7 @@
         <lang.documentationProvider id="tldrDocumentationProvider"
                                     language="Shell Script"
                                     implementationClass="com.github.alexpl292.tldrintellij.TldrDocumentationProvider"
-                                    order="before shDocumentationProvider"/>
+                                    order="first"/>
     </extensions>
 
 </idea-plugin>
