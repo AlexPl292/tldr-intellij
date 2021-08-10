@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.alexpl292.tldrintellij.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.alexpl292.tldrintellij.MyBundle
 
 class MyApplicationService {
 
