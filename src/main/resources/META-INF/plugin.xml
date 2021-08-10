@@ -1,19 +1,21 @@
 <idea-plugin>
     <id>com.github.alexpl292.tldrintellij</id>
-    <name>tldr-intellij</name>
-    <vendor>alexpl292</vendor>
+    <!--suppress PluginXmlValidity -->
+    <name>Tldr-IntelliJ</name>
+    <vendor>Alex Plate</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.sh</depends>
+    <depends>org.intellij.plugins.markdown</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.alexpl292.tldrintellij.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.alexpl292.tldrintellij.services.MyProjectService"/>
+
+        <lang.documentationProvider id="tldrDocumentationProvider"
+                                    language="Shell Script"
+                                    implementationClass="com.github.alexpl292.tldrintellij.TldrDocumentationProvider"
+                                    order="before shDocumentationProvider"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.alexpl292.tldrintellij.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
