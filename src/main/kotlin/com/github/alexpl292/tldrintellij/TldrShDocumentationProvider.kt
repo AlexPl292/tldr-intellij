@@ -15,7 +15,7 @@ import java.io.FileNotFoundException
 import java.net.URL
 import java.util.concurrent.ConcurrentHashMap
 
-class TldrDocumentationProvider : DocumentationProvider {
+class TldrShDocumentationProvider : DocumentationProvider {
 
     override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
         if (!wordWithDocumentation(element)) return null
