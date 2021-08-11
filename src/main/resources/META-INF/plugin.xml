@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.github.alexpl292.tldrintellij</id>
+    <id>dev.feedforward.tldrintellij</id>
     <name>Tldr Doc</name>
     <vendor>Alex Plate</vendor>
 
