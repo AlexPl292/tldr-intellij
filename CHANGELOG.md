@@ -2,6 +2,6 @@
 
 # Tldr Doc Changelog
 
-## [0.0.1]
+## [Unreleased]
 ### Added
 - Support shell and powershell scripts
