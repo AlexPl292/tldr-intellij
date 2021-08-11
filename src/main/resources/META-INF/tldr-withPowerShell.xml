@@ -2,7 +2,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <lang.documentationProvider id="tldrPowerShellDocumentationProvider"
                                     language="PowerShell"
-                                    implementationClass="com.github.alexpl292.tldrintellij.TldrPowerShellDocumentationProvider"
+                                    implementationClass="dev.feedforward.tldrintellij.TldrPowerShellDocumentationProvider"
                                     order="first"/>
     </extensions>
 </idea-plugin>

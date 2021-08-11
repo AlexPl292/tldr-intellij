@@ -1,4 +1,4 @@
-package com.github.alexpl292.tldrintellij
+package dev.feedforward.tldrintellij
 
 import com.intellij.lang.documentation.DocumentationMarkup
 import com.intellij.lang.documentation.DocumentationProvider

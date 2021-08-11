@@ -2,7 +2,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <lang.documentationProvider id="tldrShDocumentationProvider"
                                     language="Shell Script"
-                                    implementationClass="com.github.alexpl292.tldrintellij.TldrShDocumentationProvider"
+                                    implementationClass="dev.feedforward.tldrintellij.TldrShDocumentationProvider"
                                     order="first"/>
     </extensions>
 </idea-plugin>
