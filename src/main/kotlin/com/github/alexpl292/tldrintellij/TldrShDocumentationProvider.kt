@@ -8,6 +8,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.sh.ShTypes.WORD
 import com.intellij.sh.psi.ShGenericCommandDirective
 import com.intellij.sh.psi.ShLiteral
+import org.intellij.lang.batch.BatchTokenTypes.IDENTIFIER
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
 import org.intellij.markdown.parser.MarkdownParser
@@ -26,6 +27,21 @@ class TldrShDocumentationProvider : DocumentationProvider {
 
     private fun wordWithDocumentation(o: PsiElement?): Boolean {
         return o is LeafPsiElement && o.elementType === WORD && o.getParent() is ShLiteral && o.getParent().parent is ShGenericCommandDirective
+    }
+}
+
+// Huh, it doesn't work because of some strange reason. Need to explore this later.
+class TldrBatchDocumentationProvider : DocumentationProvider {
+
+    override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
+        if (!wordWithDocumentation(element)) return null
+        if (element == null) return null
+
+        return getInfo(element.text)
+    }
+
+    private fun wordWithDocumentation(o: PsiElement?): Boolean {
+        return o is LeafPsiElement && o.elementType === IDENTIFIER
     }
 }
 

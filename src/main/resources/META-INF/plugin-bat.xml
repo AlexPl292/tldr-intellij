@@ -1,0 +1,11 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+<!--        // Huh, it doesn't work because of some strange reason. Need to explore this later.-->
+<!--
+        <lang.documentationProvider id="tldrBatchDocumentationProvider"
+                                    language="Batch"
+                                    implementationClass="com.github.alexpl292.tldrintellij.TldrBatchDocumentationProvider"
+                                    order="first"/>
+-->
+    </extensions>
+</idea-plugin>

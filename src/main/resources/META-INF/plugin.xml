@@ -8,4 +8,5 @@
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends optional="true" config-file="plugin-sh.xml">com.jetbrains.sh</depends>
+    <depends optional="true" config-file="plugin-bat.xml">Batch Scripts Support</depends>
 </idea-plugin>

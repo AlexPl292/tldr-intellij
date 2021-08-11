@@ -1,6 +1,6 @@
 <idea-plugin>
     <extensions defaultExtensionNs="com.intellij">
-        <lang.documentationProvider id="tldrDocumentationProvider"
+        <lang.documentationProvider id="tldrShDocumentationProvider"
                                     language="Shell Script"
                                     implementationClass="com.github.alexpl292.tldrintellij.TldrShDocumentationProvider"
                                     order="first"/>
