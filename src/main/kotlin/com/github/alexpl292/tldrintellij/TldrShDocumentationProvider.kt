@@ -3,8 +3,12 @@ package com.github.alexpl292.tldrintellij
 import com.intellij.lang.documentation.DocumentationMarkup
 import com.intellij.lang.documentation.DocumentationProvider
 import com.intellij.openapi.diagnostic.logger
+import com.intellij.plugin.powershell.psi.PowerShellTypes
+import com.intellij.plugin.powershell.psi.PowerShellTypes.COMMAND_CALL_EXPRESSION
+import com.intellij.plugin.powershell.psi.PowerShellTypes.SIMPLE_ID
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
+import com.intellij.psi.util.elementType
 import com.intellij.sh.ShTypes.WORD
 import com.intellij.sh.psi.ShGenericCommandDirective
 import com.intellij.sh.psi.ShLiteral
@@ -45,6 +49,21 @@ class TldrBatchDocumentationProvider : DocumentationProvider {
     }
 }
 
+// TODO: 11.08.2021 In powershell we should use only windows set, right? Can powershell execute linux commands?
+class TldrPowerShellDocumentationProvider : DocumentationProvider {
+
+    override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String? {
+        if (originalElement == null) return null
+        if (!wordWithDocumentation(originalElement)) return null
+
+        return getInfo(originalElement.text)
+    }
+
+    private fun wordWithDocumentation(o: PsiElement): Boolean {
+        return o.elementType === SIMPLE_ID
+    }
+}
+
 private val cache = ConcurrentHashMap<String, String?>()
 
 private fun getInfo(text: String): String? = cache.computeIfAbsent(text) { downloadTldr(text) }
@@ -74,15 +93,19 @@ private fun downloadTldr(text: String): String? {
 }
 
 // TODO: 11.08.2021 Can we make it faster?
-private fun findDoc(text: String): String? = pages.firstNotNullOfOrNull {
-    try {
-        URL("https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/$it/$text.md").readText()
-    } catch (e: FileNotFoundException) {
-        null
-    } catch (e: Throwable) {
-        Logger.LOG.error(e)
-        null
+private fun findDoc(text: String): String? {
+    for (page in pages) {
+        val document = try {
+            URL("https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/$page/$text.md").readText()
+        } catch (e: FileNotFoundException) {
+            null
+        } catch (e: Throwable) {
+            Logger.LOG.error(e)
+            null
+        }
+        if (document != null) return document
     }
+    return null
 }
 
 private val pages = listOf(

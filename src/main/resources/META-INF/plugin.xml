@@ -8,4 +8,5 @@
     <depends>com.intellij.modules.platform</depends>
     <depends optional="true" config-file="tldr-withSh.xml">com.jetbrains.sh</depends>
     <depends optional="true" config-file="tldr-withBat.xml">Batch Scripts Support</depends>
+    <depends optional="true" config-file="tldr-withPowerShell.xml">com.intellij.plugin.adernov.powershell</depends>
 </idea-plugin>
