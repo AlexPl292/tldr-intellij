@@ -34,14 +34,7 @@ private val cache = ConcurrentHashMap<String, String?>()
 private fun getInfo(text: String): String? = cache.computeIfAbsent(text) { downloadTldr(text) }
 
 private fun downloadTldr(text: String): String? {
-    val document = try {
-        URL("https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/linux/$text.md").readText()
-    } catch (e: FileNotFoundException) {
-        return null
-    } catch (e: Throwable) {
-        Logger.LOG.error(e)
-        return null
-    }
+    val document = findDoc(text) ?: return null
 
     val flavour = CommonMarkFlavourDescriptor()
 
@@ -63,6 +56,27 @@ private fun downloadTldr(text: String): String? {
         append("</body></html>")
     }
 }
+
+// TODO: 11.08.2021 Can we make it faster?
+private fun findDoc(text: String): String? = pages.firstNotNullOfOrNull {
+    try {
+        URL("https://raw.githubusercontent.com/tldr-pages/tldr/main/pages/$it/$text.md").readText()
+    } catch (e: FileNotFoundException) {
+        null
+    } catch (e: Throwable) {
+        Logger.LOG.error(e)
+        null
+    }
+}
+
+private val pages = listOf(
+    "common",
+    "linux",
+    "osx",
+    "windows",
+    "android",
+    "sunos",
+)
 
 object Logger {
     val LOG = logger<Logger>()
