@@ -5,13 +5,20 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/dev.feedforward.tldrintellij.svg)](https://plugins.jetbrains.com/plugin/dev.feedforward.tldrintellij)
 
 <!-- Plugin description -->
-[tldr](https://github.com/tldr-pages/tldr) documentation for IntelliJ based IDEs (IntelliJ IDEA, PyCharm, etc.)  
-<!-- Plugin description end -->
+
+`tldr`-powered docs for shell and PowerShell languages.  
+[tldr-pages](https://github.com/tldr-pages/tldr) – simple help pages for command-line tools.
+
+Usage:
+- hover over the command in the code to get the tl;dr documentation for it
+- or use the "Quick Documentation" action
 
 Supported languages:
 - shell (built-in)
 - PowerShell ([plugin](https://plugins.jetbrains.com/plugin/10249-powershell))
 - Batch (coming soon...)
+
+<!-- Plugin description end -->
 
 ## Installation
 
