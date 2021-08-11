@@ -1,7 +1,6 @@
 <idea-plugin>
     <id>com.github.alexpl292.tldrintellij</id>
-    <!--suppress PluginXmlValidity -->
-    <name>Tldr-IntelliJ</name>
+    <name>Tldr Doc</name>
     <vendor>Alex Plate</vendor>
 
     <!-- Product and plugin compatibility requirements -->
