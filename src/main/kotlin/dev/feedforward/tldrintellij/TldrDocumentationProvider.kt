@@ -3,8 +3,6 @@ package dev.feedforward.tldrintellij
 import com.intellij.lang.documentation.DocumentationMarkup
 import com.intellij.lang.documentation.DocumentationProvider
 import com.intellij.openapi.diagnostic.logger
-import com.intellij.plugin.powershell.psi.PowerShellTypes
-import com.intellij.plugin.powershell.psi.PowerShellTypes.COMMAND_CALL_EXPRESSION
 import com.intellij.plugin.powershell.psi.PowerShellTypes.SIMPLE_ID
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
