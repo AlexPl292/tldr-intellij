@@ -27,10 +27,6 @@ class TldrDocumentationProvider : DocumentationProvider {
     private fun wordWithDocumentation(o: PsiElement?): Boolean {
         return o is LeafPsiElement && o.elementType === WORD && o.getParent() is ShLiteral && o.getParent().parent is ShGenericCommandDirective
     }
-
-    companion object {
-        internal val LOG = logger<TldrDocumentationProvider>()
-    }
 }
 
 private val cache = ConcurrentHashMap<String, String?>()
@@ -43,7 +39,7 @@ private fun downloadTldr(text: String): String? {
     } catch (e: FileNotFoundException) {
         return null
     } catch (e: Throwable) {
-        TldrDocumentationProvider.LOG.error(e)
+        Logger.LOG.error(e)
         return null
     }
 
@@ -66,4 +62,8 @@ private fun downloadTldr(text: String): String? {
         append(DocumentationMarkup.SECTIONS_END)
         append("</body></html>")
     }
+}
+
+object Logger {
+    val LOG = logger<Logger>()
 }
