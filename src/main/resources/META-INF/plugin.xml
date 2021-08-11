@@ -7,15 +7,5 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.jetbrains.sh</depends>
-    <depends>org.intellij.plugins.markdown</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-
-        <lang.documentationProvider id="tldrDocumentationProvider"
-                                    language="Shell Script"
-                                    implementationClass="com.github.alexpl292.tldrintellij.TldrDocumentationProvider"
-                                    order="first"/>
-    </extensions>
-
+    <depends optional="true" config-file="plugin-sh.xml">com.jetbrains.sh</depends>
 </idea-plugin>
